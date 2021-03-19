@@ -31,6 +31,7 @@ client.on('message', (message) => {
         atishi google "..."
         atishi lyrics "..."
         atishi kick "@.."
+        atishi ban "@.."
         `);
     }
     //2. send today's date (atishi date) 
@@ -100,15 +101,31 @@ client.on('message', (message) => {
     }
 
     // ---------------------- to do -----------------------------------------
+    
     //8. send a random quote command (atishi inspire)
     if (message.content.startsWith(prefix+ " inspire me") ) {
         message.channel.send('Inspiring quote');
     }
-    //9. kick (atishi kick @..)
+   // 9. kick (atishi kick @..)
     if(message.content.startsWith(prefix+" kick") &&  message.content.includes("kick")){
-        let id = message.content.replace(`${prefix} kick`,"");
-        message.channel.send(`Atishi kicked ${id} from the server`);
+        if(message.guild.ownerID !== message.author.id){
+            message.channel.send(`Only admins can kick other users! sorry`);
+        }
+        else {
+            let id = message.content.replace(`${prefix} kick`,"");
+            message.channel.send(`Atishi kicked ${id} from the server`);
+        }
     }
+    // 10. ban (atishi ban @..)
+    if(message.content.startsWith(prefix+" ban") &&  message.content.includes("ban")){
+        if(message.guild.ownerID !== message.author.id){
+            message.channel.send(`Only admins can ban other users! sorry`);
+        }
+        else {
+            let id = message.content.replace(`${prefix} ban`,"");
+            message.channel.send(`Atishi banned ${id} from the server`);
+        }
+}
 })
 
 client.login(process.env.DISCORD_BOT_TOKEN);
