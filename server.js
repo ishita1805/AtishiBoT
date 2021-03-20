@@ -28,10 +28,12 @@ client.on('message', (message) => {
         atishi date 
         atishi time
         atishi inspire
+        atishi gaymeter "@.."
         atishi google "..."
         atishi lyrics "..."
         atishi kick "@.."
         atishi ban "@.."
+        atishi create "..."
         `);
     }
     //2. send today's date (atishi date) 
@@ -74,7 +76,7 @@ client.on('message', (message) => {
         message.reply(`Going so soon? Bye :(`);
     }
     //7. lyrics (atishi lyrics '..') 
-    if(message.content.startsWith(prefix+" lyrics") &&  message.content.includes("lyrics")){
+    if(message.content.startsWith(prefix+" lyrics")){
         let song = message.content.replace(`${prefix} lyrics`,"");
         // message.channel.send(`song: ${song}`);
         axios.get('https://www.googleapis.com/customsearch/v1',{
@@ -98,34 +100,85 @@ client.on('message', (message) => {
         .catch(()=>{
             message.channel.send(`An error occured, please try again later`);
         })
-    }
-
-    // ---------------------- to do -----------------------------------------
-    
+    }    
     //8. send a random quote command (atishi inspire)
-    if (message.content.startsWith(prefix+ " inspire me") ) {
-        message.channel.send('Inspiring quote');
+    if (message.content.startsWith(prefix+ " inspire") ) {
+        axios.get('https://api.quotesnewtab.com/v1/quotes/random')
+            .then((data)=>message.channel.send(`"${data.data.quote}"~${data.data.author}`))
+            .catch(()=>message.channel.send('Something went wrong'))
     }
-   // 9. kick (atishi kick @..)
-    if(message.content.startsWith(prefix+" kick") &&  message.content.includes("kick")){
+    //9. Gaymeter (atishi gaymeter "@.."")
+    if (message.content.startsWith(prefix+ " gaymeter") ) {
+        let name = message.content.replace(`${prefix} gaymeter`,"");
+        message.channel.send(`${name} is ${Math.floor(Math.random() * 100)}% gay `)
+
+    }
+   //10. kick (atishi kick @..)
+    if(message.content.startsWith(prefix+" kick")){
         if(message.guild.ownerID !== message.author.id){
             message.channel.send(`Only admins can kick other users! sorry`);
         }
         else {
-            let id = message.content.replace(`${prefix} kick`,"");
-            message.channel.send(`Atishi kicked ${id} from the server`);
+            message.mentions.members.map((member)=>{
+                member
+                    .kick()
+                    .then((member) => message.channel.send(`Atishi kicked ${member.displayName} from the server`))
+            })
         }
     }
-    // 10. ban (atishi ban @..)
-    if(message.content.startsWith(prefix+" ban") &&  message.content.includes("ban")){
+    //11. ban (atishi ban @..)
+    if(message.content.startsWith(prefix+" ban")){
         if(message.guild.ownerID !== message.author.id){
             message.channel.send(`Only admins can ban other users! sorry`);
         }
         else {
-            let id = message.content.replace(`${prefix} ban`,"");
-            message.channel.send(`Atishi banned ${id} from the server`);
+            message.mentions.members.map((member)=>{
+                member
+                    .ban()
+                    .then((member) => message.channel.send(`Atishi banned ${member.displayName} from the server`))
+            })
         }
-}
+    }
+    // 12. create role  (atishi create "...")
+    if(message.content.startsWith(prefix+" create role")){
+        let role = message.content.replace(`${prefix} create role`,"");
+        message.guild.roles.create({
+            data: {
+              name: role,
+              color: 'BLUE',
+            },
+            reason: role,
+          })
+            .then(()=>message.channel.send(`${role} created`))
+            .catch(()=>message.channel.send(`An error occured`))
+    }
+
+    // ---------------------- to do -----------------------------------------
+
+     // 13. delete role  (atishi delete role "...")
+     if(message.content.startsWith(prefix+" delete role")){
+        let ROLE = message.content.replace(`${prefix} delete role `,"");
+        message.guild.roles.fetch()
+        .then((res)=>{
+            res.cache.map((role)=>{
+                if(role.name === ROLE){
+                    role.delete()
+                    .then(()=>message.channel.send(`${ROLE} deleted from server`))
+                    .catch(()=>message.channel.send('An error occured'))
+                }
+            })
+        })
+        .catch(()=>message.channel.send('An error occured'))
+        
+    }
+     // 14. assign role  (atishi assign role "...")
+     if(message.content.startsWith(prefix+" assign role")){
+        let role_string = message.content.replace(`${prefix} assign role `,"");
+        var res = role_string.split(" ");
+        console.log(res);
+        // 0th index is role (create if it doesn't exist)
+    }
+
 })
 
 client.login(process.env.DISCORD_BOT_TOKEN);
@@ -138,13 +191,23 @@ client.login(process.env.DISCORD_BOT_TOKEN);
 // console.log(`${client.user.tag} has logged in.`);
 
 /*
-Help commands:
-atishi create role ""
-atishi give role "..." "@.."
+
+Reddit
 atishi roast "@.."
 atishi simp "@.."
-atishi gaymeter "@.."
-atishi marvel "@.."
+atishi meme ""
+
+atishi marvel "@.." --> tells which marvel character you are
+atishi marvelfam "..."  ---> tells all marvel relations
+atishi marvelcomic ---> random comic strip to read
+
+Music
+atishi play ".."
+atishi pause
+atishit stop
+
+games
+1. madlips
 */
 
 // https://leovoel.github.io/embed-visualizer/
