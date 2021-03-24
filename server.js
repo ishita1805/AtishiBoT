@@ -11,14 +11,21 @@ let csxMusic = process.env.CSX_METROLYRICS
 
 client.on('ready',() => {
     client.user.setActivity('Your Server',{type: 'WATCHING'})
-    const Guilds = client.guilds.cache.map(guild => guild.name);
+    // const Guilds = client.guilds.cache.map(guild => guild.name);
 })
 
 const prefix = process.env.PREFIX;
 
+const randNo = (limit) => {
+    const thatNo = Math.floor(Math.random() * limit);
+    return thatNo;
+};
+
 client.on('message', (message) => {
     // ignoring bot messages
     if(message.author.bot) return;
+
+    // basic + helpful commands
     //1. help command (atishi help) 
     if (message.content.startsWith(prefix+ " help") ) {
         message.channel.send(`
@@ -33,7 +40,11 @@ client.on('message', (message) => {
         atishi lyrics "..."
         atishi kick "@.."
         atishi ban "@.."
-        atishi create "..."
+        atishi create role "..."
+        atishi delete role "..."
+        atishi assign role "..." "@.."
+        atishi remove role "..." "@.."
+
         `);
     }
     //2. send today's date (atishi date) 
@@ -67,15 +78,23 @@ client.on('message', (message) => {
         })
       
     }
-    //5. hi (atishi hi) 
+    //5. send a random quote command (atishi inspire)
+     if (message.content.startsWith(prefix+ " inspire") ) {
+        axios.get('https://api.quotesnewtab.com/v1/quotes/random')
+            .then((data)=>message.channel.send(`"${data.data.quote}"~${data.data.author}`))
+            .catch(()=>message.channel.send('Something went wrong'))
+    }
+    //6. hi (atishi hi) 
     if (message.content.startsWith(prefix+ " hi") ) {
         message.reply(`Hiii <3`);
     }
-    //6. bye (atishi bye) 
+    //7. bye (atishi bye) 
     if (message.content.startsWith(prefix+ " bye") ) {
         message.reply(`Going so soon? Bye :(`);
     }
-    //7. lyrics (atishi lyrics '..') 
+
+    // music related
+    //8. lyrics (atishi lyrics '..') 
     if(message.content.startsWith(prefix+" lyrics")){
         let song = message.content.replace(`${prefix} lyrics`,"");
         // message.channel.send(`song: ${song}`);
@@ -100,23 +119,45 @@ client.on('message', (message) => {
         .catch(()=>{
             message.channel.send(`An error occured, please try again later`);
         })
-    }    
-    //8. send a random quote command (atishi inspire)
-    if (message.content.startsWith(prefix+ " inspire") ) {
-        axios.get('https://api.quotesnewtab.com/v1/quotes/random')
-            .then((data)=>message.channel.send(`"${data.data.quote}"~${data.data.author}`))
-            .catch(()=>message.channel.send('Something went wrong'))
-    }
+    }     
+    // -------------------- to do ---------------------- //
+    // play a song, pause a song, stop a song 
+
+    // fun commands
     //9. Gaymeter (atishi gaymeter "@.."")
     if (message.content.startsWith(prefix+ " gaymeter") ) {
-        let name = message.content.replace(`${prefix} gaymeter`,"");
-        message.channel.send(`${name} is ${Math.floor(Math.random() * 100)}% gay `)
-
+        const mem = message.mentions.members.first();
+        message.channel.send(`${mem} is ${Math.floor(Math.random() * 100)}% gay `)
     }
-   //10. kick (atishi kick @..)
+    //10. Roast (atishi roast "@...")
+    if (message.content.startsWith(prefix+ " roast") ) {
+        const mem = message.mentions.members.first();
+        if(!mem){ message.channel.send(`Please provide a valid member name`); return; }
+        message.channel.send(`Fetching your roast..`); 
+        axios.get('https://evilinsult.com/generate_insult.php?lang=en&type=json')
+            .then((resp)=>message.channel.send(`${mem} ${resp.data.insult}`))
+            .catch(()=>message.channel.send(`An error occured`))
+    } 
+    //11. Meme (atishi meme)
+    if (message.content.startsWith(prefix+ " meme") ) {
+        message.channel.send(`Fetching your meme..`); 
+        const mainUrl = `https://www.reddit.com/r/dankmemes/random/.json`;
+        axios.get(mainUrl)
+            .then((response) => {
+                let res = response.data[0].data.children[0].data
+                message.channel.send(`${res.url}`);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
+
+    // Moderator - change owner to admin permission
+    //12. kick (atishi kick @..)
     if(message.content.startsWith(prefix+" kick")){
         if(message.guild.ownerID !== message.author.id){
             message.channel.send(`Only admins can kick other users! sorry`);
+            return;
         }
         else {
             message.mentions.members.map((member)=>{
@@ -126,10 +167,11 @@ client.on('message', (message) => {
             })
         }
     }
-    //11. ban (atishi ban @..)
+    //13. ban (atishi ban @..)
     if(message.content.startsWith(prefix+" ban")){
         if(message.guild.ownerID !== message.author.id){
             message.channel.send(`Only admins can ban other users! sorry`);
+            return;
         }
         else {
             message.mentions.members.map((member)=>{
@@ -139,24 +181,29 @@ client.on('message', (message) => {
             })
         }
     }
-    // 12. create role  (atishi create "...")
+    //14. create role  (atishi create role "...")
     if(message.content.startsWith(prefix+" create role")){
+        if(message.guild.ownerID !== message.author.id){
+            message.channel.send(`Only admins can create roles`);
+            return;
+        }
         let role = message.content.replace(`${prefix} create role`,"");
         message.guild.roles.create({
             data: {
               name: role,
-              color: 'BLUE',
+              color: 'RANDOM',
             },
             reason: role,
           })
             .then(()=>message.channel.send(`${role} created`))
             .catch(()=>message.channel.send(`An error occured`))
     }
-
-    // ---------------------- to do -----------------------------------------
-
-     // 13. delete role  (atishi delete role "...")
+    //15. delete role  (atishi delete role "...")
      if(message.content.startsWith(prefix+" delete role")){
+        if(message.guild.ownerID !== message.author.id){
+            message.channel.send(`Only admins can delete roles`);
+            return;
+        }
         let ROLE = message.content.replace(`${prefix} delete role `,"");
         message.guild.roles.fetch()
         .then((res)=>{
@@ -171,14 +218,101 @@ client.on('message', (message) => {
         .catch(()=>message.channel.send('An error occured'))
         
     }
-     // 14. assign role  (atishi assign role "...")
-     if(message.content.startsWith(prefix+" assign role")){
+    //16. assign role  (atishi assign role "...")
+    if(message.content.startsWith(prefix+" assign role")){
+        if(message.guild.ownerID !== message.author.id){
+            message.channel.send(`Only admins can assign roles`);
+            return;
+        }
         let role_string = message.content.replace(`${prefix} assign role `,"");
-        var res = role_string.split(" ");
-        console.log(res);
-        // 0th index is role (create if it doesn't exist)
+        var res = role_string.substr(0,role_string.indexOf(' '));
+        let role = message.guild.roles.cache.find(x => x.name === res);
+        if(!role){
+            message.channel.send(`No role "${res}" exists`)
+        } else {
+            message.mentions.members.map((m)=>{
+                if(!m.roles.cache.some(role => role.name === res)) {
+                    m.roles.add(role)
+                    .then(()=>message.channel.send(`Role ${res} assigned to ${m.displayName}`))
+                    .catch(()=>message.channel.send(`An error occured in assigning role ${res} to ${m.displayName}`))
+                }
+                else message.channel.send(`Role ${res} already assigned to ${m.displayName}!`)
+            })
+        }
     }
+    //17. unassign role  (atishi remove role "...")
+    if(message.content.startsWith(prefix+" remove role")){
+        if(message.guild.ownerID !== message.author.id){
+            message.channel.send(`Only admins can create roles`);
+            return;
+        }
+        let role_string = message.content.replace(`${prefix} remove role `,"");
+        var res = role_string.substr(0,role_string.indexOf(' '));
+        let role = message.guild.roles.cache.find(x => x.name === res);
+       
+        message.mentions.members.map((m)=>{
+            if(m.roles.cache.some(role => role.name === res)){
+                console.log('till here')
+                m.roles
+                    .remove(role)
+                    .then(()=>message.channel.send(`Role ${res} removed for user ${m.displayName}`))
+                    .catch(()=>message.channel.send(`An error occured in removing role ${res} for ${m.displayName}`))
+            } else message.channel.send(`${m.displayName} doesn't have a role ${res}`)
+        })
+    }
+    //18. create a textchannel
+    if(message.content.startsWith(prefix+" tchannel")){
+         if(message.guild.ownerID !== message.author.id){
+            message.channel.send(`Only admins can create text channels`);
+            return;
+        }
+        let channel = message.content.replace(`${prefix} tchannel `,"");
+        message.guild.channels.create(channel,"text")
+            .then(()=>message.channel.send(`text channel "${channel}" created`))
+            .catch(()=>message.channel.send(`An error occured`))
+    }
+    //19. create a voicechannel
+    if(message.content.startsWith(prefix+" vchannel")){
+        if(message.guild.ownerID !== message.author.id){
+            message.channel.send(`Only admins can create voice channels`);
+            return;
+        }
+        let channel = message.content.replace(`${prefix} vchannel `,"");
+        message.guild.channels.create(channel,{
+            type: 'voice'
+        })
+            .then(()=>message.channel.send(`voice channel "${channel}" created`))
+            .catch(()=>message.channel.send(`An error occured`))
+    }
+    //20. delete a textchannel
+    if(message.content.startsWith(prefix+" tcdel")){
+        if(message.guild.ownerID !== message.author.id){
+           message.channel.send(`Only admins can create text channels`);
+           return;
+       }
+       let channel = message.content.replace(`${prefix} tcdel `,"");
+       const fetchedChannel = message.guild.channels.cache.find(r => {return r.type==='text' && r.name === channel});
+       fetchedChannel.delete()
+           .then(()=>message.channel.send(`text channel "${channel}" deleted`))
+           .catch(()=>message.channel.send(`An error occured`))
+    }
+   //21. delete a voicechannel
+   if(message.content.startsWith(prefix+" vcdel")){
+       if(message.guild.ownerID !== message.author.id){
+           message.channel.send(`Only admins can create voice channels`);
+           return;
+       }
+       let channel = message.content.replace(`${prefix} vcdel `,"");
+       const fetchedChannel = message.guild.channels.cache.find(r => {return r.type==='voice' && r.name === channel});
+       fetchedChannel.delete()
+           .then(()=>message.channel.send(`voice channel "${channel}" deleted`))
+           .catch(()=>message.channel.send(`An error occured`))
+   }
 
+    // -------------------- to do ---------------------- //
+    // Marvel 
+    // which marvel character are you
+    // get a marvel comic strip
 })
 
 client.login(process.env.DISCORD_BOT_TOKEN);
@@ -186,29 +320,35 @@ client.login(process.env.DISCORD_BOT_TOKEN);
 
 
 
-// send a hello message on connecting to a new server
-// console.log(Guilds);
-// console.log(`${client.user.tag} has logged in.`);
+
 
 /*
+TODO TASKS
 
-Reddit
+Reddit ----
 atishi roast "@.."
 atishi simp "@.."
 atishi meme ""
 
+Marvel ----
 atishi marvel "@.." --> tells which marvel character you are
-atishi marvelfam "..."  ---> tells all marvel relations
 atishi marvelcomic ---> random comic strip to read
 
-Music
+Music ----
 atishi play ".."
 atishi pause
 atishit stop
 
-games
+Games ----
 1. madlips
+
+Extra ----
+send a hello message on connecting to a new server
+console.log(Guilds);
+console.log(`${client.user.tag} has logged in.`);
+
 */
 
+// Links:
 // https://leovoel.github.io/embed-visualizer/
-// console.log(`[${message.author.tag}] ${message.content}`);
+// https://stackoverflow.com/questions/62815577/discord-js-creating-channels-within-categories
