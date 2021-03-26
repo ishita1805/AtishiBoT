@@ -75,7 +75,7 @@ const list = [
     'Robert_Drake_',
     'Psylocke_',
     'Warren Worthington III_',
-    'Rachel_Summers_',
+    '"Spider-Girl"_(Mutant/Spider_Clone)_',
     'Illyana_Rasputina_',
     'Piotr Rasputin_',
     'Nathaniel_Grey_',
