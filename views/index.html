@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>AtishiBoT | Moderator and more for discord</title>
     <link rel="stylesheet" type="text/css" href="./resources/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="icon" type="image/jpg" href="./assets/favicon.jpg"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap" rel="stylesheet">
@@ -15,10 +16,25 @@
 <body>
 
   <div id='navigation' class='nav'>
-    <a class='nav-item active' href='#landing'>Invite</a>
-    <a class='nav-item' href='#about'>About AtishiBoT</a>
-    <a class='nav-item' href='#commands'>Commands</a>
-    <a class='nav-item' href='#collaborator'>Become a collaborator</a>
+    <div id='navbutton' class='nav-icon'>
+      <div class='bar-nav'></div>
+      <div class='bar-nav'></div>
+      <div class='bar-nav'></div>
+    </div>
+      <div class='nav-small'>
+        <a class='nav-item active' href='#landing'>Invite</a>
+        <a class='nav-item' href='#about'>About AtishiBoT</a>
+        <a class='nav-item' href='#commands'>Commands</a>
+        <a class='nav-item' href='#collaborator'>Become a collaborator</a>
+      </div>
+      <div id='navtoggle'>
+        <div class='nav-small-display'>
+          <a class='nav-item2 active2' href='#landing'>Invite</a>
+          <a class='nav-item2' href='#about'>About AtishiBoT</a>
+          <a class='nav-item2' href='#commands'>Commands</a>
+          <a class='nav-item2' href='#collaborator'>Become a collaborator</a>
+      </div>
+      </div>
   </div>
 
   <div id='landing'>
@@ -28,7 +44,7 @@
         <h1>Lorem ipsum <br/>dolor sit <span class='pink'>amet</span>,</h1>
         <p>adipiscing elit. Tell us</p>
         <a class='button' target="__blank" href="https://discord.com/api/oauth2/authorize?client_id=822166581014429717&permissions=8&scope=bot">
-          Invite to server
+          <b>Invite to server</b>
         </a>
         <br/>
        <img src='./assets/botLogo.png' id='logoBot'/>
@@ -48,8 +64,8 @@
       Lorem sit volutpat urna tempor sem velit. Lacus, purus accumsan, quam risus. Amet magna tempor, nisi, at orci. Sem faucibus tincidunt pretium enim, enim placerat. 
     </p>
     <div class='row'>
-      <i class='fa fa-github'></i>
-      <i class='fa fa-instagram'></i>
+      <a target='blank__' href='https://github.com/ishita1805/AtishiBoT'><i class='fa fa-github'></i></a>
+      <a target='blank__' href='https://www.instagram.com/artiishiii.__/'><i class='fa fa-instagram'></i></a>
     </div>
   </div>
 
@@ -109,7 +125,7 @@
       </div>
     </div>
   </div>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src='./js/index.js'></script>
 </body>
 </html>
