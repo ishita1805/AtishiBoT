@@ -1,0 +1,347 @@
+html{
+    scroll-behavior: smooth;
+}
+body{
+    overflow-x: hidden;
+    width:100%;
+    min-height:100vh;
+    padding:0;
+    scroll-behavior: smooth;
+    margin:0;
+    font-family: 'Quicksand', sans-serif;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #121316;
+}
+::-webkit-scrollbar-thumb {
+background: #1a1b1f;
+}
+.nav{
+    width:92%;
+    padding:2vh 4%;
+    height:6vh;
+    background: #121316;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:flex-start;
+    position:fixed;
+    box-shadow:0 5px 5px rgba(0, 0, 0, 0.326);
+    z-index:200;
+}
+.nav a{
+text-decoration: none;
+color:#4E4E4E;
+padding:0 4vh;
+}
+.active{
+    color:#929292 !important;
+    font-weight:600;
+}
+#landing{
+    height:100vh;
+    width:100%;
+    background:url('../assets/bg.png');
+    background-size: cover;
+}
+.cover{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+    height:100vh;
+    width:100%;
+    background:rgba(0, 0, 0, 0.225);
+}
+.cont-1{
+    margin-left:4%;
+    margin-top:10vh;
+}
+.cont-2{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:flex-end;
+}
+.cont-2 img{
+    margin-top:10vh;
+    height:75vh;
+    width:auto;
+    border-radius:5px 0 0 5px;
+}
+.pink{
+    color:#FFACAC;
+}
+.cont-1 h1{
+    font-family: 'Montserrat', sans-serif;
+    color:white;
+    font-weight:900;
+    font-size:42px;
+    margin:1vh 0;
+}
+.cont-1 p{
+  margin:2vh 0;
+  margin-bottom:5vh;
+  color:#7e7d7d;
+  font-size:25px;
+  font-weight: 300;
+}
+#logodiscord{
+    width:200px;
+}
+.button{
+    /* margin:3vh 0; */
+    padding:2vh 4vh;
+    border-radius:5px;
+    text-decoration: none;
+    color:white;
+    font-size:20px;
+    background: rgb(149,153,226);
+    background: linear-gradient(45deg, rgba(149,153,226,1) 0%, rgba(220,134,128,1) 100%);
+    font-weight:500;
+}
+#about{
+    width:100%;
+    height:auto;
+    padding:12vh 0;
+    background:#121316;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+    color:white;
+}
+#about p{
+    width:70%;
+    font-size:17px;
+    color:grey;
+    text-align:center;
+}
+#about h1{
+    font-family: 'Montserrat', sans-serif;
+    font-weight:600;
+    font-size:42px;
+}
+.row{
+    display:flex;
+    flex-direction:row;
+    margin:3vh 0;
+}
+.row i{
+    margin:1vh;
+    cursor:pointer;
+    color:rgb(214, 214, 214);
+    font-size:40px;
+}
+#collaborator{
+    height:100vh;
+    width:100%;
+    background:url('../assets/collab.png');
+    background-size:cover;
+    background-position:center;
+}
+#collaborator h1{
+    font-family: 'Montserrat', sans-serif;
+    font-weight:600;
+    font-size:42px;
+    color:white;
+}
+#collaborator p{
+    width:60%;
+    font-size:17px;
+    color:rgb(189, 189, 189);
+    text-align:center;
+}
+#collaborator i{
+    font-size:50px;
+    color:white;
+    cursor:pointer;
+    margin:2vh;
+}
+.colab{
+    height:100vh;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    background: rgb(19,20,24);
+    background: linear-gradient(180deg, rgba(19,20,24,1) 12%, rgba(255,255,255,0) 100%);
+}
+#commands{
+    width:92%;
+    padding:0 4%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    background:#18191D;
+}
+#commands h1{
+    font-family: 'Montserrat', sans-serif;
+    font-weight:600;
+    font-size:42px;
+    color:white;
+    margin:0;
+}
+#commands p{
+    font-family: 'Montserrat', sans-serif;
+    font-size:18px;
+    margin:0;
+    width:92%;
+    margin-bottom:2vh;
+    margin-top:5vh;
+    color:rgb(160, 158, 158);
+}
+.command-bg{
+    width:92%;
+    padding:17vh 4%;
+    padding-bottom:0;
+    display:flex;
+    flex-direction:column;
+    background:url();
+    align-items:center;
+    justify-content:center;
+}
+.command-img{
+    width:40vw;
+    align-self:flex-end;
+}
+.command-grid{
+    width:80%;
+    display:flex !important;
+    flex-wrap:wrap !important;
+    flex-direction:row !important;
+    align-items:center !important;
+    justify-content:center !important;
+}
+.command-box{
+    margin:3vh 0;
+    display:flex;
+    width:50%;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:flex-start;
+}
+.command-p{
+  margin:0 !important;
+  margin-bottom:0.5vh !important;
+  font-size:14px !important;
+  margin-left:4vh !important;
+}
+.command-orange{
+    background:#EEA47F;
+    color:white;
+    border-radius:5px;
+    font-weight:700;
+    font-size:16px;
+    padding:1vh 3vh;
+    margin-bottom:1vh;
+}
+.footer{
+    width:92%;
+    background: #121316;
+    min-height:7vh;
+    padding:1vh 4%;
+    display:flex;
+    flex-direction:row;
+    color:rgb(233, 233, 233);
+    align-items:center;
+    justify-content: space-between;
+}
+.footer p{
+    color:rgb(196, 196, 196);
+}
+.ficon{
+    margin:0 1vh !important;
+    font-size:20px !important;
+}
+#logoBot{
+    margin-top:5vh !important;
+    height:18vh;
+}
+.footer-logo{
+    height:7vh;
+    width:auto;
+}
+.footer-mtop{
+    margin-top:-1vh;
+}
+@media screen and (max-width:1200px){
+    .cont-2 img{
+        height:65vh;
+    }
+}
+@media screen and (max-width:1100px){
+    .cont-2 img{
+        height:56vh;
+    }
+}
+@media screen and (max-width:1000px){
+    .cover{
+        padding-top:17vh;
+        flex-direction:column;
+        height:auto;
+        min-height:100vh;
+    }
+    .cont-1{
+        margin-top:0;
+    }
+    #landing{
+        height:auto;
+        min-height:100vh;
+    }
+    .cont-2{
+        justify-content:center;
+        margin-bottom:10vh;
+    }
+    #about p{
+        width:90%;
+    }
+    #collaborator p{
+        width:80%;
+    }
+    .command-grid{
+        width:90%;
+        justify-content: space-between !important;
+    }
+    .command-box{
+        margin:3vh 0;
+        display:flex;
+        width:40%;
+        margin-right:10%;
+        flex-direction:column;
+        align-items:flex-start;
+        justify-content:flex-start;
+    }
+}
+@media screen and (max-width:800px){
+    .command-grid{
+        width:100%;
+        display:flex !important;
+        flex-wrap:nowrap;
+        flex-direction:column !important;
+        align-items:center !important;
+        justify-content:center !important;
+    }
+    .command-box{
+        width:80%;
+        margin-right:10%;
+    }
+}
+@media screen and (max-width:700px){
+    .cont-2 img{
+        height:auto;
+        width:90%;
+    }
+    #collaborator p{
+        width:90%;
+        font-size:16px;
+    }
+    #about p{
+        font-size:16px;
+    }
+}
