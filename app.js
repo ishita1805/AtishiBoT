@@ -145,8 +145,8 @@ client.on('message', (message) => {
     if (message.content === prefix+ " -h" ) {
         const Embed = new MessageEmbed()
         .setTitle('AtishiBot Help Commands')
-        .setDescription('AtishiBoT offers a wide range of features, explore them with these help commands. [visit for more](http://google.com)\u200B')
-        .setThumbnail('https://i.imgur.com/wSTFkRM.png')
+        .setDescription('AtishiBoT offers a wide range of features, explore them with these help commands. [visit for more](https://atishibot.netlify.app/)\u200B')
+        .setThumbnail('https://atishibot.netlify.app/assets/botLogo.png')
         .addFields(
             { name: `Chatbot :robot:\u0009`, value: '`atishi -h talk`', inline: true},
             { name: `Play Music :musical_score:\u0009`, value: '`atishi -h music`', inline: true },
@@ -158,28 +158,28 @@ client.on('message', (message) => {
         )
         .setColor('#f5bf42')
         .setTimestamp()
-        .setFooter('Ishita Kabra', 'https://i.imgur.com/wSTFkRM.png');
+        .setFooter('Ishita Kabra', 'https://atishibot.netlify.app/assets/botLogo.png');
         message.channel.send(Embed);
     }
     if (message.content.startsWith(prefix+ " -h talk") ) {
         const Embed = new MessageEmbed()
         .setTitle('AtishiBot Help Commands')
-        .setDescription('Use these commands to talk to atishi. Type something like:  "hi, how are you?". [visit for more](http://google.com)\u200B')
-        .setThumbnail('https://i.imgur.com/wSTFkRM.png')
+        .setDescription('Use these commands to talk to atishi. Type something like:  "hi, how are you?". [visit for more](https://atishibot.netlify.app/)\u200B')
+        .setThumbnail('https://atishibot.netlify.app/assets/botLogo.png')
         .addFields(
             { name: 'Initiate chatbot! :wave:', value: '`atishi hi`', inline: true },
             { name: 'Stop chatbot! :open_hands:', value: '`atishi bye`', inline: true },
         )
         .setColor('#f5bf42')
         .setTimestamp()
-        .setFooter('Ishita Kabra', 'https://i.imgur.com/wSTFkRM.png');
+        .setFooter('Ishita Kabra', 'https://atishibot.netlify.app/assets/botLogo.png');
         message.channel.send(Embed);
     }
     if (message.content.startsWith(prefix+ " -h music") ) {
         const Embed = new MessageEmbed()
         .setTitle('AtishiBot Help Commands')
-        .setDescription('Use these music commands to play songs or get song lyrics right here on youtube. [visit for more](http://google.com)\u200B')
-        .setThumbnail('https://i.imgur.com/wSTFkRM.png')
+        .setDescription('Use these music commands to play songs or get song lyrics right here on youtube. [visit for more](https://atishibot.netlify.app/)\u200B')
+        .setThumbnail('https://atishibot.netlify.app/assets/botLogo.png')
         .addFields(
             { name: 'Get song lyrics :musical_score:', value: 'atishi lyrics "..."', inline: true },
             { name: 'Play a song :headphones:', value: 'atishi play "..."', inline: true },
@@ -187,14 +187,14 @@ client.on('message', (message) => {
         )
         .setColor('#f5bf42')
         .setTimestamp()
-        .setFooter('Ishita Kabra', 'https://i.imgur.com/wSTFkRM.png');
+        .setFooter('Ishita Kabra', 'https://atishibot.netlify.app/assets/botLogo.png');
         message.channel.send(Embed);
     }
     if (message.content.startsWith(prefix+ " -h fun") ) {
         const Embed = new MessageEmbed()
         .setTitle('AtishiBot Help Commands')
-        .setDescription('Bored? Can atishi interest you in a meme? or a roast perhaps?". [visit for more](http://google.com)\u200B')
-        .setThumbnail('https://i.imgur.com/wSTFkRM.png')
+        .setDescription('Bored? Can atishi interest you in a meme? or a roast perhaps?". [visit for more](https://atishibot.netlify.app/)\u200B')
+        .setThumbnail('https://atishibot.netlify.app/assets/botLogo.png')
         .addFields(
             { name: 'Roast someone :smiling_imp:', value: 'atishi roast "@.."\u200B', inline: true },
             { name: 'Get a meme :joy:"\u200B', value: 'atishi meme', inline: true },
@@ -202,14 +202,14 @@ client.on('message', (message) => {
         )
         .setColor('#f5bf42')
         .setTimestamp()
-        .setFooter('Ishita Kabra', 'https://i.imgur.com/wSTFkRM.png');
+        .setFooter('Ishita Kabra', 'https://atishibot.netlify.app/assets/botLogo.png');
         message.channel.send(Embed);
     }
     if (message.content.startsWith(prefix+ " -h assist") ) {
         const Embed = new MessageEmbed()
         .setTitle('AtishiBot Help Commands')
-        .setDescription('Get the date, time or google anything you like. [visit for more](http://google.com)\u200B')
-        .setThumbnail('https://i.imgur.com/wSTFkRM.png')
+        .setDescription('Get the date, time or google anything you like. [visit for more](https://atishibot.netlify.app/)\u200B')
+        .setThumbnail('https://atishibot.netlify.app/assets/botLogo.png')
         .addFields(
             { name: 'Feeling low? Get an inspirational quote :innocent:', value: 'atishi inspire', inline: false },
             { name: "Get today's date :calendar: ", value: 'atishi date', inline: true },
@@ -218,42 +218,42 @@ client.on('message', (message) => {
         )
         .setColor('#f5bf42')
         .setTimestamp()
-        .setFooter('Ishita Kabra', 'https://i.imgur.com/wSTFkRM.png');
+        .setFooter('Ishita Kabra', 'https://atishibot.netlify.app/assets/botLogo.png');
         message.channel.send(Embed);
     }
     if (message.content.startsWith(prefix+ " -h moderate") ) {
         const Embed = new MessageEmbed()
         .setTitle('AtishiBot Help Commands')
-        .setDescription('Perform basic moderator task with ease. [visit for more](http://google.com)\u200B')
-        .setThumbnail('https://i.imgur.com/wSTFkRM.png')
+        .setDescription('Perform basic moderator task with ease. [visit for more](https://atishibot.netlify.app/)\u200B')
+        .setThumbnail('https://atishibot.netlify.app/assets/botLogo.png')
         .addFields(
             { name: 'Kick user :person_walking:', value: 'atishi kick', inline: true },
             { name: 'Ban  user :man_walking:', value: 'atishi ban', inline: true },
-            { name: 'Create a role :pencil2:', value: 'atishi createRole "..."', inline: true },
-            { name: 'Delete a role :wastebasket:\u200B', value: 'atishi deleteRole "..."\u200B', inline: true },
-            { name: 'Assign user role :pencil:', value: 'atishi assignRole "..." "@.."', inline: true },
-            { name: 'Remove user role :wastebasket:', value: 'atishi removeRole "..." "@.."', inline: true },
-            { name: 'Create text channel :closed_book:', value: 'atishi createTC "..."', inline: true },
-            { name: 'Delete text channel :wastebasket:\u200B', value: 'atishi deleteTC "..."\u200B', inline: true },
-            { name: 'Create voice channel :loud_sound:', value: 'atishi createVC "..."', inline: true },
-            { name: 'Delete voice channel :wastebasket:\n', value: 'atishi deleteVC "..."\n', inline: true },  
+            { name: 'Create a role :pencil2:', value: 'atishi new-role "..."', inline: true },
+            { name: 'Delete a role :wastebasket:\u200B', value: 'atishi del-role "..."\u200B', inline: true },
+            { name: 'Assign user role :pencil:', value: 'atishi give-role "..." "@.."', inline: true },
+            { name: 'Remove user role :wastebasket:', value: 'atishi rem-role "..." "@.."', inline: true },
+            { name: 'Create text channel :closed_book:', value: 'atishi new-tc "..."', inline: true },
+            { name: 'Delete text channel :wastebasket:\u200B', value: 'atishi del-tc "..."\u200B', inline: true },
+            { name: 'Create voice channel :loud_sound:', value: 'atishi new-vc "..."', inline: true },
+            { name: 'Delete voice channel :wastebasket:\n', value: 'atishi del-vc "..."\n', inline: true },  
         )
         .setColor('#f5bf42')
         .setTimestamp()
-        .setFooter('Ishita Kabra', 'https://i.imgur.com/wSTFkRM.png');
+        .setFooter('Ishita Kabra', 'https://atishibot.netlify.app/assets/botLogo.png');
         message.channel.send(Embed);
     }
     if (message.content.startsWith(prefix+ " -h marvel") ) {
         const Embed = new MessageEmbed()
         .setTitle('AtishiBot Help Commands')
-        .setDescription('Find out which marvel character you are. [visit for more](http://google.com)\u200B')
-        .setThumbnail('https://i.imgur.com/wSTFkRM.png')
+        .setDescription('Find out which marvel character you are. [visit for more](https://atishibot.netlify.app/)\u200B')
+        .setThumbnail('https://atishibot.netlify.app/assets/botLogo.png')
         .addFields(
             { name: 'Which marvel character are you :heartpulse:', value: 'atishi earth616', inline: true },
         )
         .setColor('#f5bf42')
         .setTimestamp()
-        .setFooter('Ishita Kabra', 'https://i.imgur.com/wSTFkRM.png');
+        .setFooter('Ishita Kabra', 'https://atishibot.netlify.app/assets/botLogo.png');
         message.channel.send(Embed);
     }
 
@@ -430,12 +430,12 @@ client.on('message', (message) => {
                     })
                 }
             }
-            if(message.content.startsWith(prefix+" createRole")){
+            if(message.content.startsWith(prefix+" new-role")){
                 if(message.guild.ownerID !== message.author.id){
                     message.channel.send(`Only admins can create roles`);
                     return;
                 }
-                let role = message.content.replace(`${prefix} createRole`,"");
+                let role = message.content.replace(`${prefix} new-role`,"");
                 if(!role.trim()) return message.channel.send(`Please give a valid role name`);
                 message.guild.roles.create({
                     data: {
@@ -447,12 +447,12 @@ client.on('message', (message) => {
                     .then(()=>message.channel.send(`${role} created`))
                     .catch(()=>message.channel.send(`An error occured`))
             }
-            if(message.content.startsWith(prefix+" deleteRole")){
+            if(message.content.startsWith(prefix+" del-role")){
                 if(message.guild.ownerID !== message.author.id){
                     message.channel.send(`Only admins can delete roles`);
                     return;
                 }
-                let ROLE = message.content.replace(`${prefix} deleteRole `,"");
+                let ROLE = message.content.replace(`${prefix} del-role `,"");
             
                 message.guild.roles.fetch()
                 .then((res)=>{
@@ -468,12 +468,12 @@ client.on('message', (message) => {
                 .catch(()=>message.channel.send('An error occured'))
                 
             }
-            if(message.content.startsWith(prefix+" assignRole")){
+            if(message.content.startsWith(prefix+" give-role")){
                 if(message.guild.ownerID !== message.author.id){
                     message.channel.send(`Only admins can assign roles`);
                     return;
                 }
-                let role_string = message.content.replace(`${prefix} assignRole `,"");
+                let role_string = message.content.replace(`${prefix} give-role `,"");
                 var res = role_string.substr(0,role_string.indexOf(' '));
                 let role = message.guild.roles.cache.find(x => x.name === res);
                 if(!role){
@@ -491,12 +491,12 @@ client.on('message', (message) => {
                     })
                 }
             }
-            if(message.content.startsWith(prefix+" removeRole")){
+            if(message.content.startsWith(prefix+" rem-role")){
                 if(message.guild.ownerID !== message.author.id){
                     message.channel.send(`Only admins can create roles`);
                     return;
                 }
-                let role_string = message.content.replace(`${prefix} removeRole `,"");
+                let role_string = message.content.replace(`${prefix} rem-role `,"");
                 var res = role_string.substr(0,role_string.indexOf(' '));
                 let role = message.guild.roles.cache.find(x => x.name === res);
                 const mem = message.mentions.members.first();
@@ -510,23 +510,23 @@ client.on('message', (message) => {
                     } else message.channel.send(`${m.displayName} doesn't have a role ${res}`)
                 })
             }
-            if(message.content.startsWith(prefix+" createTC")){
+            if(message.content.startsWith(prefix+" new-tc")){
                 if(message.guild.ownerID !== message.author.id){
                     message.channel.send(`Only admins can create text channels`);
                     return;
                 }
-                let channel = message.content.replace(`${prefix} createTC `,"");
+                let channel = message.content.replace(`${prefix} new-tc `,"");
                 if(!channel.trim()) return message.channel.send(`Please give a valid channel name`);
                 message.guild.channels.create(channel,"text")
                     .then(()=>message.channel.send(`text channel "${channel}" created`))
                     .catch(()=>message.channel.send(`An error occured`))
             }
-            if(message.content.startsWith(prefix+" createVC")){
+            if(message.content.startsWith(prefix+" new-vc")){
                 if(message.guild.ownerID !== message.author.id){
                     message.channel.send(`Only admins can create voice channels`);
                     return;
                 }
-                let channel = message.content.replace(`${prefix} createVC `,"");
+                let channel = message.content.replace(`${prefix} new-vc `,"");
                 if(!channel.trim()) return message.channel.send(`Please give a valid channel name`);
                 message.guild.channels.create(channel,{
                     type: 'voice'
@@ -534,24 +534,24 @@ client.on('message', (message) => {
                     .then(()=>message.channel.send(`voice channel "${channel}" created`))
                     .catch(()=>message.channel.send(`An error occured`))
             }
-            if(message.content.startsWith(prefix+" deleteTC")){
+            if(message.content.startsWith(prefix+" del-tc")){
                 if(message.guild.ownerID !== message.author.id){
                 message.channel.send(`Only admins can create text channels`);
                 return;
             }
-            let channel = message.content.replace(`${prefix} deleteTC `,"");
+            let channel = message.content.replace(`${prefix} del-tc `,"");
             const fetchedChannel = message.guild.channels.cache.find(r => {return r.type==='text' && r.name === channel});
             if(!fetchedChannel) return message.channel.send(`No such channel found`);
             fetchedChannel.delete()
                 .then(()=>message.channel.send(`text channel "${channel}" deleted`))
                 .catch(()=>message.channel.send(`An error occured`))
             }
-            if(message.content.startsWith(prefix+" deleteVC")){
+            if(message.content.startsWith(prefix+" del-vc")){
                 if(message.guild.ownerID !== message.author.id){
                     message.channel.send(`Only admins can create voice channels`);
                     return;
                 }
-                let channel = message.content.replace(`${prefix} deleteVC `,"");
+                let channel = message.content.replace(`${prefix} del-vc `,"");
                 const fetchedChannel = message.guild.channels.cache.find(r => {return r.type==='voice' && r.name === channel});
                 if(!fetchedChannel) return message.channel.send(`No such channel found`);
                 fetchedChannel.delete()
