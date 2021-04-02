@@ -12,7 +12,7 @@ for (var i = 0; i < btns.length; i++) {
 }
 
 $( window ).resize(function() {
-  if ($(window).width() > 800){
+  if ($(window).width() > 890){
       $("#navtoggle").css("display","flex");
   }
   else

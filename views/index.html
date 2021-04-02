@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="./resources/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="icon" type="image/jpg" href="./assets/favicon.jpg"/>
+    <link rel="icon" type="image/jpg" href="./assets/favicon.png"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap" rel="stylesheet">
@@ -25,10 +25,12 @@
       <div id='nav-tog' class='nav-small'>
           <a class='nav-item active' href='#landing'>Invite</a>
           <a class='nav-item' href='#about'>About AtishiBoT</a>
+          <a class='nav-item' href='#features'>Features</a>
           <a class='nav-item' href='#commands'>Commands</a>
           <a class='nav-item' href='#collaborator'>Become a collaborator</a>
         </div>
     </div>
+    <img class='nav-logo' src='./assets/botLogo.png'/>
      
   </div>
 
@@ -39,10 +41,10 @@
         <h1>Do more with<br/>discord,<span class='pink'> AtishiBoT</span></h1>
         <p>A moderator bot and more</p>
         <a class='button' target="__blank" href="https://discord.com/api/oauth2/authorize?client_id=822166581014429717&permissions=8&scope=bot">
-          <b>Invite to server</b>
+          <b>INVITE TO SERVER</b>
         </a>
         <br/>
-       <img src='./assets/botLogo.png' id='logoBot'/>
+       <img class='panda' src='./assets/botLogo.png' id='logoBot'/>
       </div>
       <div class='cont-2'>
         <img src='./assets/landingss.JPG'/>
@@ -52,6 +54,7 @@
 
   <div id='about'>
     <h1>About AtishiBoT</h1>
+    <img class='about-img' src='./assets/about.png'/>
     <p>AtishiBoT helps you build a better discord server, be it for you and your friends, or for an organisation or event. with a plathora of features, randing from moderation, to music, to your very own google engine, AtishiBoT is built to compliment the needs of every discord server out there.</p>
 
     <p>With AtishiBoT, getting lyrics was never easier! You can search lyrics for any and every song out there! and here's the catch, you don't have to be listening to it ;)</p>
@@ -64,155 +67,194 @@
     </div>
   </div>
 
+  <div id='features'>
+    <h1>Features</h1>
+    <div id='feature-grid'>
+      <div class='feature-card'>
+        <img src='./assets/chatbot.png'/>
+        <h3>Chatbot</h3>
+        <p>atishi -h talk</p>
+      </div>
+      <div class='feature-card'>
+        <img src='./assets/headphones.png'/>
+        <h3>Music</h3>
+        <p>atishi -h music</p>
+      </div>
+      <div class='feature-card'>
+        <img src='./assets/jester.png'/>
+        <h3>Fun</h3>
+        <p>atishi -h fun</p>
+      </div>
+      <div class='feature-card'>
+        <img src='./assets/assist.png'/>
+        <h3>Assist</h3>
+        <p>atishi -h assist</p>
+      </div>
+      <div class='feature-card'>
+        <img src='./assets/tools.png'/>
+        <h3>Moderator</h3>
+        <p>atishi -h moderate</p>
+      </div>
+      <div class='feature-card'>
+        <img src='./assets/marvel.png'/>
+        <h3>Marvel</h3>
+        <p>atishi -h marvel</p>
+      </div>
+    </div>
+  </div>
+
   <div id='commands'>
     <div class='command-bg'>
       <h1>Commands</h1>
-      <p><b>Prefix: atishi</b></p>
+      <p>Prefix: <span class='command-p-h'>&ensp; atishi</span></p>
       <div class='command-grid'>
+
         <div class='command-box'>
-          <div class='command-orange'>atishi help</div>
+          <span class='row sno-com'>1 &ensp; <div class='command-orange'>atishi -h</div></span>
           <p class='command-p'><b>Provides help commands to use AtishiBoT</b></p>
-          <p class='command-p'>Eg- atishi lyrics Zaalima : Shows Lyrics of Zaalima</p>
+          <p class='command-p'>Eg- atishi -h : Shows all help commands</p>
         </div>
 
         <div class='command-box'>
-          <div class='command-orange'>atishi hi</div>
-          <p class='command-p'><b>Say hi to atishi :)</b></p>
-          <p class='command-p'>Eg- atishi lyrics Zaalima : Shows Lyrics of Zaalima</p>
+          <span class='row sno-com'>2 &ensp;  <div class='command-orange'>atishi hi</div></span>
+          <p class='command-p'><b>Say hi to atishi! You can make conversation with her after this ;)</b></p>
+          <p class='command-p'>Eg- atishi hi : Starts the chatbot</p>
         </div>
 
         <div class='command-box'>
-          <div class='command-orange'>atishi bye</div>
+          <span class='row sno-com'>3 &ensp;  <div class='command-orange'>atishi bye</div></span>
           <p class='command-p'><b>Say bye to atishi! she doesn't like hearing it tho</b></p>
-          <p class='command-p'>Eg- atishi lyrics Zaalima : Shows Lyrics of Zaalima</p>
+          <p class='command-p'>Eg- atishi bye : Stops the chatbot</p>
         </div>
 
         <div class='command-box'>
-          <div class='command-orange'>atishi date</div>
+          <span class='row sno-com'>4 &ensp; <div class='command-orange'>atishi date</div></span>
           <p class='command-p'><b>Get today's date</b></p>
-          <p class='command-p'>Eg- atishi lyrics Zaalima : Shows Lyrics of Zaalima</p>
+          <p class='command-p'>Eg- atishi date : Gives you the date</p>
         </div>
 
         <div class='command-box'>
-          <div class='command-orange'>atishi time</div>
+          <span class='row sno-com'>5 &ensp;  <div class='command-orange'>atishi time</div></span>
           <p class='command-p'><b>Get the current time</b></p>
-          <p class='command-p'>Eg- atishi lyrics Zaalima : Shows Lyrics of Zaalima</p>
+          <p class='command-p'>Eg- atishi time : Gives you the time</p>
         </div>
 
         <div class='command-box'>
-          <div class='command-orange'>atishi google "..."</div>
+          <span class='row sno-com'>6 &ensp;  <div class='command-orange'>atishi google *query*</div></span>
           <p class='command-p'><b>Google anything from within discord</b></p>
-          <p class='command-p'>Eg- atishi lyrics Zaalima : Shows Lyrics of Zaalima</p>
+          <p class='command-p'>Eg- atishi google *query*: Returns the top most search result</p>
         </div>
 
         <div class='command-box'>
-          <div class='command-orange'>atishi lyrics "..."</div>
+          <span class='row sno-com'>7 &ensp;  <div class='command-orange'>atishi inspire</div></span>
+          <p class='command-p'><b>Feeling down? Let atishi tell you something inspiring</b></p>
+          <p class='command-p'>Eg- atishi inspire: Tells you something inspiring</p>
+        </div>
+
+        <div class='command-box'>
+          <span class='row sno-com'>8 &ensp;  <div class='command-orange'>atishi lyrics *song name*</div></span>
           <p class='command-p'><b>Get the lyrics of a song! anytime you want</b></p>
           <p class='command-p'>Eg- atishi lyrics Zaalima : Shows Lyrics of Zaalima</p>
         </div>
 
         <div class='command-box'>
-          <div class='command-orange'>atishi play "..."</div>
+          <span class='row sno-com'>9 &ensp;  <div class='command-orange'>atishi play *song name or link*</div></span>
           <p class='command-p'><b>Play a song by entering a link or simply typing it's name</b></p>
-          <p class='command-p'>Eg- atishi lyrics Zaalima : Shows Lyrics of Zaalima</p>
+          <p class='command-p'>Eg- atishi play Zaalima : Plays Zaalima</p>
         </div>
 
         <div class='command-box'>
-          <div class='command-orange'>atishi stop "..."</div>
+          <span class='row sno-com'>10 &ensp;  <div class='command-orange'>atishi stop</div></span>
           <p class='command-p'><b>Run this command to stop playing a song</b></p>
-          <p class='command-p'>Eg- atishi lyrics Zaalima : Shows Lyrics of Zaalima</p>
+          <p class='command-p'>Eg- atishi stop: Stops playing the song</p>
         </div>
 
         <div class='command-box'>
-          <div class='command-orange'>atishi meme</div>
+          <span class='row sno-com'>11 &ensp;  <div class='command-orange'>atishi meme</div></span>
           <p class='command-p'><b>Gets a meme from reddit</b></p>
           <p class='command-p'>Eg- atishi lyrics Zaalima : Shows Lyrics of Zaalima</p>
         </div>
 
         <div class='command-box'>
-          <div class='command-orange'>atishi inspire</div>
-          <p class='command-p'><b>Feeling down? Let atishi tell you something inspiring</b></p>
-          <p class='command-p'>Eg- atishi lyrics Zaalima : Shows Lyrics of Zaalima</p>
-        </div>
-
-        <div class='command-box'>
-          <div class='command-orange'>atishi eart616</div>
+          <span class='row sno-com'>12 &ensp;  <div class='command-orange'>atishi eart616</div></span>
           <p class='command-p'><b>Find out which marvel character you are</b></p>
-          <p class='command-p'>Eg- atishi lyrics Zaalima : Shows Lyrics of Zaalima</p>
+          <p class='command-p'>Eg- atishi earth616 : Assigns a marvel card to you</p>
         </div>
 
         <div class='command-box'>
-          <div class='command-orange'>atishi roast "@..."</div>
+          <span class='row sno-com'>13 &ensp;  <div class='command-orange'>atishi roast *@user*</div></span>
           <p class='command-p'><b>Roast someone with this command</b></p>
-          <p class='command-p'>Eg- atishi lyrics Zaalima : Shows Lyrics of Zaalima</p>
+          <p class='command-p'>Eg- atishi roast @user : atishi sends a roast to the user</p>
+        </div>
+
+        <div class='command-box'>
+          <span class='row sno-com'>24 &ensp;  <div class='command-orange'>atishi simpmeter *@user*</div></span>
+          <p class='command-p'><b>Let atishi predict how big a simp someone is</b></p>
+          <p class='command-p'>Eg- atishi simpmeter @user : @user is 97% simp</p>
         </div>
 
         
         <div class='command-box'>
-          <div class='command-orange'>atishi ban "@..."</div>
+          <span class='row sno-com'>14 &ensp;  <div class='command-orange'>atishi ban *@user*</div></span>
           <p class='command-p'><b>Moderator command to ban user from server</b></p>
-          <p class='command-p'>Eg- atishi lyrics Zaalima : Shows Lyrics of Zaalima</p>
+          <p class='command-p'>Eg- atishi ban @user : User gets banned from the server</p>
         </div>
 
         <div class='command-box'>
-          <div class='command-orange'>atishi kick "@..."</div>
+          <span class='row sno-com'>15 &ensp;  <div class='command-orange'>atishi kick *@user*</div></span>
           <p class='command-p'><b>Moderator command to kick user from server</b></p>
-          <p class='command-p'>Eg- atishi lyrics Zaalima : Shows Lyrics of Zaalima</p>
+          <p class='command-p'>Eg- atishi kick @user : User gets kicked from the server</p>
         </div>
 
         <div class='command-box'>
-          <div class='command-orange'>atishi createRole "..."</div>
+          <span class='row sno-com'>16 &ensp;  <div class='command-orange'>atishi createRole *role name*</div></span>
           <p class='command-p'><b>Moderator command to create a role</b></p>
-          <p class='command-p'>Eg- atishi lyrics Zaalima : Shows Lyrics of Zaalima</p>
+          <p class='command-p'>Eg- atishi createRole DJ : A new role `DJ` is created</p>
         </div>
 
         <div class='command-box'>
-          <div class='command-orange'>atishi deleteRole "..."</div>
+          <span class='row sno-com'>17 &ensp;  <div class='command-orange'>atishi deleteRole *role name*</div></span>
           <p class='command-p'><b>Moderator command to delete a role</b></p>
-          <p class='command-p'>Eg- atishi lyrics Zaalima : Shows Lyrics of Zaalima</p>
+          <p class='command-p'>Eg- atishi deleteRole DJ : A new role `DJ` is deleted</p>
         </div>
 
         <div class='command-box'>
-          <div class='command-orange'>atishi assignRole "..." "@..."</div>
+          <span class='row sno-com'>18 &ensp;  <div class='command-orange'>atishi assignRole *role name* *@user*</div></span>
           <p class='command-p'><b>Moderator command to assign a role</b></p>
-          <p class='command-p'>Eg- atishi lyrics Zaalima : Shows Lyrics of Zaalima</p>
+          <p class='command-p'>Eg- atishi assignRole DJ @user : Role is assigned to all the users mentioned</p>
         </div>
 
         <div class='command-box'>
-          <div class='command-orange'>atishi removeRole "..." "@..."</div>
-          <p class='command-p'><b>Moderator command to remove a role</b></p>
-          <p class='command-p'>Eg- atishi lyrics Zaalima : Shows Lyrics of Zaalima</p>
+          <span class='row sno-com'>19 &ensp;  <div class='command-orange'>atishi removeRole *role name* *@user*</div></span>
+          <p class='command-p'><b>Moderator command to remove a role for a user</b></p>
+          <p class='command-p'>Eg- atishi removeRole DJ @user : Role is removed for all the users mentioned</p>
         </div>
 
         <div class='command-box'>
-          <div class='command-orange'>atishi createTC "..."</div>
+          <span class='row sno-com'>20 &ensp;  <div class='command-orange'>atishi createTC *channel name*</div></span>
           <p class='command-p'><b>Moderator command to create a text channel</b></p>
-          <p class='command-p'>Eg- atishi lyrics Zaalima : Shows Lyrics of Zaalima</p>
+          <p class='command-p'>Eg- atishi createTC general : A text channel named general is created</p>
         </div>
 
         <div class='command-box'>
-          <div class='command-orange'>atishi deleteTC "..."</div>
+          <span class='row sno-com'>21 &ensp;  <div class='command-orange'>atishi deleteTC *channel name*</div></span>
           <p class='command-p'><b>Moderator command to delete a text channel</b></p>
-          <p class='command-p'>Eg- atishi lyrics Zaalima : Shows Lyrics of Zaalima</p>
+          <p class='command-p'>Eg- atishi deleteTC general : A text channel named general is deleted</p>
         </div>
 
         <div class='command-box'>
-          <div class='command-orange'>atishi createVC "..."</div>
+          <span class='row sno-com'>22 &ensp;  <div class='command-orange'>atishi createVC *channel name*</div></span>
           <p class='command-p'><b>Moderator command to create a voice channel</b></p>
-          <p class='command-p'>Eg- atishi lyrics Zaalima : Shows Lyrics of Zaalima</p>
+          <p class='command-p'>Eg- atishi createVC general : A voice channel named general is created</p>
         </div>
 
         <div class='command-box'>
-          <div class='command-orange'>atishi deleteVC "..."</div>
+          <span class='row sno-com'>23 &ensp;  <div class='command-orange'>atishi deleteVC *channel name*</div></span>
           <p class='command-p'><b>Moderator command to delete a voice channel</b></p>
-          <p class='command-p'>Eg- atishi lyrics Zaalima : Shows Lyrics of Zaalima</p>
+          <p class='command-p'>Eg- atishi deleteVC general : A voice channel named general is deleted</p>
         </div>
 
-        <div class='command-box'>
-          <div class='command-orange'>atishi simpmeter "..."</div>
-          <p class='command-p'><b>Let atishi predict how big a simp someone is</b></p>
-          <p class='command-p'>Eg- atishi lyrics Zaalima : Shows Lyrics of Zaalima</p>
-        </div>
+        
 
       </div>
 
@@ -230,6 +272,7 @@
      
       <i class='fa fa-github'></i>
     </div>
+    
   </div>
 
   <div class='footer'>

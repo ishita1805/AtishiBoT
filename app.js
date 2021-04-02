@@ -85,9 +85,9 @@ const playFunc = async (message, args) => {
             music = true;
         })
         dispatcher.on('finish', () =>{
-            music = false;
-            voiceChannel.leave();
-            message.channel.send('Thanks for using the music service :heart: !');
+            // music = false;
+            // voiceChannel.leave();
+            // message.channel.send('Thanks for using the music service :heart: !');
         })
         dispatcher.on('error', error =>
         {
@@ -353,8 +353,8 @@ client.on('message', (message) => {
                     message.channel.send(`An error occured, please try again later`);
                 })
             }  
-            if(message.content.startsWith(prefix+" play")){
-                let song = message.content.replace(`${prefix} play`,"");
+            if(message.content.startsWith(prefix+" ply")){
+                let song = message.content.replace(`${prefix} ply`,"");
                 // checking second argument
                 if(song.trim().length === 0) return message.channel.send('You need to send the second argument!');
                 else {
