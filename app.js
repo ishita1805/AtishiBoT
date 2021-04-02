@@ -110,25 +110,31 @@ const stopFunc = async (message) => {
     await message.channel.send('Thanks for using the music service :heart: !');
 }
 async function smallTalk(message) {
-    const sessionId = uuid.v4();
-    const projectId = process.env.PROJECT_ID
-    const sessionClient = new dialogflow.SessionsClient({
-        keyFilename: "./bot-config.json"
-    });
-    const sessionPath = sessionClient.projectAgentSessionPath(projectId, sessionId);
-    const request = {
-      session: sessionPath,
-      queryInput: {
-        text: {
-          text: message.content,
-          languageCode: 'en-US',
+    try{
+        const sessionId = uuid.v4();
+        const projectId = process.env.PROJECT_ID
+        const sessionClient = new dialogflow.SessionsClient({
+            keyFilename: "./bot-config.json"
+        });
+        const sessionPath = sessionClient.projectAgentSessionPath(projectId, sessionId);
+        const request = {
+        session: sessionPath,
+        queryInput: {
+            text: {
+            text: message.content,
+            languageCode: 'en-US',
+            },
         },
-      },
-    };
+        };
 
-    const responses = await sessionClient.detectIntent(request);
-    const result = responses[0].queryResult;
-    await  message.reply(result.fulfillmentText);
+        const responses = await sessionClient.detectIntent(request);
+        const result = responses[0].queryResult;
+        console.log(result);
+        await  message.reply(result.fulfillmentText);
+    }
+    catch(e){
+        console.log(e);
+    }
   }
 
 client.on('message', (message) => {
