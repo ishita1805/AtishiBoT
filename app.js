@@ -359,8 +359,8 @@ client.on('message', (message) => {
                     message.channel.send(`An error occured, please try again later`);
                 })
             }  
-            if(message.content.startsWith(prefix+" ply")){
-                let song = message.content.replace(`${prefix} ply`,"");
+            if(message.content.startsWith(prefix+" play")){
+                let song = message.content.replace(`${prefix} play`,"");
                 // checking second argument
                 if(song.trim().length === 0) return message.channel.send('You need to send the second argument!');
                 else {
