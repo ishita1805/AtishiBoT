@@ -12,11 +12,14 @@
   "license": "ISC",
   "dependencies": {
     "@discordjs/opus": "^0.5.0",
+    "@google-cloud/dialogflow": "^3.4.0",
     "axios": "^0.21.1",
     "cheerio": "^1.0.0-rc.5",
+    "dialogflow": "^1.2.0",
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "uuid": "^8.3.2",
     "yt-search": "^2.7.5",
     "ytdl-core": "^4.5.0"
   },

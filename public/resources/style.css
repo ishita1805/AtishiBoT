@@ -82,7 +82,7 @@ padding:0 4vh;
 .cont-1 h1{
     font-family: 'Montserrat', sans-serif;
     color:white;
-    font-weight:900;
+    font-weight:800;
     font-size:42px;
     margin:1vh 0;
 }
@@ -262,12 +262,18 @@ padding:0 4vh;
     align-items:center;
     justify-content: space-between;
 }
+.big-nav-show{
+    display:flex !important;
+}
 .footer p{
     color:rgb(196, 196, 196);
 }
 .ficon{
     margin:0 1vh !important;
     font-size:20px !important;
+}
+#nav-tog{
+    display:block;
 }
 #logoBot{
     margin-top:7vh !important;
@@ -280,17 +286,10 @@ padding:0 4vh;
 .footer-mtop{
     margin-top:-1vh;
 }
-#navtoggle{
-    display:none;
-}
-.nav-small{
-    display:flex;
-}
 .nav-small-display{
     display:none;
     flex-direction:column;
 }
-
 @media screen and (max-width:1200px){
     .cont-2 img{
         height:65vh;
@@ -367,13 +366,6 @@ padding:0 4vh;
         box-shadow:0 5px 5px rgba(0, 0, 0, 0.326);
         z-index:200;
     }
-    .nav-small{
-        display:none;
-        flex-direction:column;
-    }
-    #navtoggle{
-        display:none;
-    }
     .nav-icon{
         display:flex;
         flex-direction:column;
@@ -395,11 +387,23 @@ padding:0 4vh;
         text-decoration: none;
         color:#4E4E4E;
         padding:2vh 4vh;
-        }
-        .nav-small-display{
-            display:flex;
-            flex-direction:column;
-        }
+    }
+    .nav-small-display{
+        display:flex;
+        flex-direction:column;
+    }
+    #nav-tog{
+        display:flex;
+        flex-direction:column;
+    }
+    #navtoggle{
+        display:none;
+    }
+    .big-nav-show{
+        display:none !important;
+    }
+
+
 }
 @media screen and (max-width:700px){
     .cont-2 img{

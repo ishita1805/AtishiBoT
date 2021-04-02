@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "atishibot-daod",
+  "private_key_id": "6a9cf3c88d9b1fb717ea3797cb9b3db465c9731b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDGNQq9xB/UeuHN\naOuLFhqJtNpG30lB0W0BBY0gBGhP2AzhXlAzFO9PmvGHnyHMGMECfinkPRhoWc9c\nxhUdqJ08tTCKMC8k9ZyD60ZosBHWRxxkPTyMXj/1mYLnPSN2+LN30NKPxMPfi50w\nNmTmbk4749RUEXIeFpj7UdakGgHjNA5OkZ+/GxAnz3dBR5lcIUNmMVDJGiPpEDDG\nA3/HCzmN0QuCs9nJvCD4d6FaERtKUXzumcRINpxAnxLPf0DyOmXoxuCAQJw5zXNY\nRWm3KcFnKsQSORVJCUsve5PTATLf2tDcLHa4nKUJUL5mZcgaAiadSbnAvgTMyMGE\nu6aYqWKXAgMBAAECggEABQ3VMSw5v/9+l9OcLfbbNmCX92FWoGxaN6VXQh1Mby6M\nCRasyi7iB7ry0UJ9hMwcynqXwYhbgaMBgw3fUUz0Q61bFpzAXhuP2wYr6P935r7b\nOno40QYkcLQc8J3ee2ojKWPbiN0tWlQftRPm4k6modIYENPS1Rw+ZtTS8obwIdPY\nO8OLYM2fsnX3uP/THwwYEOxYuncfSx2oxF+gONHHhyM/qTuMi2hwghDjBTlajO4P\n+8IlCIADHeAKo2jW2nQmETP+VFIMMWWorK68RJbE6d4VXzPopGpboLsX2mrKF0hU\nyWTWd+v4B4/qpQiuwFk1OVhKBYd3rZLNHavgdBG8AQKBgQD0a9rcdsYkkwBx6dgg\nUFpWBbcS6p4bSq8I60DFy3ZaNcaJEpdeC/34SgbAKB7eAPFK2fr52+eA96Rebk+2\nl+9Kz0G1DZsDzOqwjYnivICofY7Sqii/0nQkx1VPoPVRUrZVjjJ9r9xm2WPycfES\nz70sH1G1nXiASo+BOY0CrhFYrwKBgQDPmL1LVNeRJrt8gzcl4fTz00YbmZryfRN9\nDtqIfBeK6f+p6/FitaBITC9IkLtC3DWjgPVGEansOLMi90HZXyTl/Y/c1Fv8HnC9\nza63w3RxDaTGP2zRMTiMMo7kTfcJilIFHe6OOnz7d7HnytKhYzHgxfmt3iQs3B/r\nhf3oAn8+mQKBgQC+GdTTe52IfLzv3Ey4dUaNeUx2bfwihee1LCPosuKOLx0HJ2qL\nPxB8uDaf5ZR8XodNDFTjWGGqMPGqcGmXPnxi1ufoBXj3b71pK+x+aNY4Nc+LkcS3\nzNuAb3iuwiWK5qXhzQMANnNZmuLdgjlZxDEBzCok8yDxxwvuGfDOkMv1CQKBgDzy\nwfig8x0ZewgGWiWUHl+LktS9l0FEOXmI594UWLEfHEGeFON/IYy4WVV7sI7jqhfT\n367vtqy0xNsqLroL9gBUHm2eJ1dw9Ha1MWugRcp/T/YoXuFYCxsWKN+ciD/TzVrV\nO9mkEFef/6pm4MojHly4oyJJyuMkyXZTg4UfXo5ZAoGAR+jWAWHA3Xfjm+Ec9Z5g\nAHeSgBWfqROAVMP3DQ0LAA0La2f6Qa4sbVeVcLhR8s/fpEzACT+BdMiND1TVrdLC\nmrYsbcmmuM6+4vFhVQFxK2O4OEBD7sbn1+chPtxehcR25gbmxlf+FToMo3sqLzPP\nbE449GlRInTlOMD5zMAg0No=\n-----END PRIVATE KEY-----\n",
+  "client_email": "atishi-dialogflow@atishibot-daod.iam.gserviceaccount.com",
+  "client_id": "115134772117539738386",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/atishi-dialogflow%40atishibot-daod.iam.gserviceaccount.com"
+}
