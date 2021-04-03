@@ -114,7 +114,18 @@ async function smallTalk(message) {
         const sessionId = uuid.v4();
         const projectId = process.env.PROJECT_ID
         const sessionClient = new dialogflow.SessionsClient({
-            keyFilename: "./bot-config.json"
+            credentials: {
+                "type": "service_account",
+                "project_id": process.env.PROJECT_ID,
+                "private_key_id": process.env.PRIVATE_KEY_ID,
+                "private_key": process.env.PRIVATE_KEY,
+                "client_email": process.env.CLIENT_EMAIL,
+                "client_id": process.env.CLIENT_ID,
+                "auth_uri": process.env.AUTH_URI,
+                "token_uri": process.env.TOKEN_URI,
+                "auth_provider_x509_cert_url": process.env.AUTH_CERT_URI,
+                "client_x509_cert_url": process.env.CLIENT_CERT_URI,
+            }
         });
         const sessionPath = sessionClient.projectAgentSessionPath(projectId, sessionId);
         const request = {
@@ -374,11 +385,13 @@ client.on('message', (message) => {
 
             //fun commands - simpmeter, roast, meme
             if (message.content.startsWith(prefix+ " simpmeter") ) {
+                if(message.mentions.members.first=client.user) return message.channel.send("I'm no a simp. You on the other hand, 100% :)");
                 const mem = message.mentions.members.first();
                 if(!mem) return message.channel.send('Mention someone to simp');
                 message.channel.send(`${mem} is ${Math.floor(Math.random() * 100)}% simp `)
             }
             if (message.content.startsWith(prefix+ " roast") ) {
+                if(message.mentions.members.first=client.user) return message.channel.send("You can't roast me :)");
                 const mem = message.mentions.members.first();
                 if(!mem) return message.channel.send(`Please provide a valid member name`);
                 message.channel.send(`Fetching your roast..`); 
@@ -401,10 +414,8 @@ client.on('message', (message) => {
 
             // Moderator - change owner to admin permission
             if(message.content.startsWith(prefix+" kick")){
-                if(message.guild.ownerID !== message.author.id){
-                    message.channel.send(`Only admins can kick other users! sorry`);
-                    return;
-                }
+                if(message.guild.ownerID !== message.author.id) return message.channel.send(`Only admins can kick other users! sorry`);
+                if(message.mentions.members.first=client.user) return message.channel.send("You can't kick me hah!");
                 else {
                     const mem = message.mentions.members.first();
                     if(!mem) return message.channel.send(`Please provide valid member names to kick`);
@@ -416,10 +427,8 @@ client.on('message', (message) => {
                 }
             }
             if(message.content.startsWith(prefix+" ban")){
-                if(message.guild.ownerID !== message.author.id){
-                    message.channel.send(`Only admins can ban other users! sorry`);
-                    return;
-                }
+                if(message.guild.ownerID !== message.author.id) return message.channel.send(`Only admins can ban other users! sorry`);
+                if(message.mentions.members.first=client.user) return message.channel.send("You can't ban me hah!");
                 else {
                     const mem = message.mentions.members.first();
                     if(!mem) return message.channel.send(`Please provide valid member names to ban`);
@@ -444,7 +453,7 @@ client.on('message', (message) => {
                     },
                     reason: role,
                 })
-                    .then(()=>message.channel.send(`${role} created`))
+                    .then(()=>message.channel.send(`new role: ${role} created`))
                     .catch(()=>message.channel.send(`An error occured`))
             }
             if(message.content.startsWith(prefix+" del-role")){
@@ -456,14 +465,16 @@ client.on('message', (message) => {
             
                 message.guild.roles.fetch()
                 .then((res)=>{
+                    var flag = 0;
                     res.cache.map((role)=>{
                         if(role.name === ROLE){
+                            flag++;
                             role.delete()
                             .then(()=>message.channel.send(`${ROLE} deleted from server`))
                             .catch(()=>message.channel.send('An error occured'))
                         }
-                        else return message.channel.send('Please enter a valid role name')
                     })
+                    if(flag>1) return message.channel.send('Please enter a valid role name');
                 })
                 .catch(()=>message.channel.send('An error occured'))
                 
@@ -473,23 +484,25 @@ client.on('message', (message) => {
                     message.channel.send(`Only admins can assign roles`);
                     return;
                 }
-                let role_string = message.content.replace(`${prefix} give-role `,"");
-                var res = role_string.substr(0,role_string.indexOf(' '));
+                let role_string = message.content.replace(`${prefix} give-role`,"");
+                var res1 = role_string.substr(role_string.indexOf('<'),role_string.length).trim();
+                var res = role_string.replace(res1,"").trim();
+
+                const mem = message.mentions.members.first();
+                if(!mem)  return message.channel.send(`Please provide valid member names`);
+                
                 let role = message.guild.roles.cache.find(x => x.name === res);
-                if(!role){
-                    message.channel.send(`No role "${res}" exists`)
-                } else {
-                    const mem = message.mentions.members.first();
-                    if(!mem) return message.channel.send(`Please provide valid member names`);
-                    message.mentions.members.map((m)=>{
-                        if(!m.roles.cache.some(role => role.name === res)) {
-                            m.roles.add(role)
-                            .then(()=>message.channel.send(`Role ${res} assigned to ${m.displayName}`))
-                            .catch(()=>message.channel.send(`An error occured in assigning role ${res} to ${m.displayName}`))
-                        }
-                        else message.channel.send(`Role ${res} already assigned to ${m.displayName}!`)
-                    })
-                }
+                if(!role) return message.channel.send(`No role "${res}" exists`)
+    
+                message.mentions.members.map((m)=>{
+                    if(!m.roles.cache.some(role => role.name === res)) {
+                        m.roles.add(role)
+                        .then(()=>message.channel.send(`Role "${res}" assigned to ${m.displayName}`))
+                        .catch(()=>message.channel.send(`An error occured in assigning role "${res}" to ${m.displayName}`))
+                    }
+                    else message.channel.send(`Role "${res}" already assigned to ${m.displayName}!`)
+                })
+            
             }
             if(message.content.startsWith(prefix+" rem-role")){
                 if(message.guild.ownerID !== message.author.id){
@@ -515,7 +528,7 @@ client.on('message', (message) => {
                     message.channel.send(`Only admins can create text channels`);
                     return;
                 }
-                let channel = message.content.replace(`${prefix} new-tc `,"");
+                let channel = message.content.replace(`${prefix} new-tc`,"");
                 if(!channel.trim()) return message.channel.send(`Please give a valid channel name`);
                 message.guild.channels.create(channel,"text")
                     .then(()=>message.channel.send(`text channel "${channel}" created`))
@@ -526,7 +539,7 @@ client.on('message', (message) => {
                     message.channel.send(`Only admins can create voice channels`);
                     return;
                 }
-                let channel = message.content.replace(`${prefix} new-vc `,"");
+                let channel = message.content.replace(`${prefix} new-vc`,"");
                 if(!channel.trim()) return message.channel.send(`Please give a valid channel name`);
                 message.guild.channels.create(channel,{
                     type: 'voice'
@@ -602,16 +615,11 @@ app.listen(PORT,()=>{
 
 
 /*
-TODO TASKS
-
-
+TO DO
 Music ----
 atishi pause and resume
-
-
 Extra ----
 send a hello message on connecting to a new server
 console.log(Guilds);
 console.log(`${client.user.tag} has logged in.`);
-
 */
