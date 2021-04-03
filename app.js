@@ -118,7 +118,7 @@ async function smallTalk(message) {
                 "type": "service_account",
                 "project_id": process.env.PROJECT_ID,
                 "private_key_id": process.env.PRIVATE_KEY_ID,
-                "private_key":"-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDGNQq9xB/UeuHN\naOuLFhqJtNpG30lB0W0BBY0gBGhP2AzhXlAzFO9PmvGHnyHMGMECfinkPRhoWc9c\nxhUdqJ08tTCKMC8k9ZyD60ZosBHWRxxkPTyMXj/1mYLnPSN2+LN30NKPxMPfi50w\nNmTmbk4749RUEXIeFpj7UdakGgHjNA5OkZ+/GxAnz3dBR5lcIUNmMVDJGiPpEDDG\nA3/HCzmN0QuCs9nJvCD4d6FaERtKUXzumcRINpxAnxLPf0DyOmXoxuCAQJw5zXNY\nRWm3KcFnKsQSORVJCUsve5PTATLf2tDcLHa4nKUJUL5mZcgaAiadSbnAvgTMyMGE\nu6aYqWKXAgMBAAECggEABQ3VMSw5v/9+l9OcLfbbNmCX92FWoGxaN6VXQh1Mby6M\nCRasyi7iB7ry0UJ9hMwcynqXwYhbgaMBgw3fUUz0Q61bFpzAXhuP2wYr6P935r7b\nOno40QYkcLQc8J3ee2ojKWPbiN0tWlQftRPm4k6modIYENPS1Rw+ZtTS8obwIdPY\nO8OLYM2fsnX3uP/THwwYEOxYuncfSx2oxF+gONHHhyM/qTuMi2hwghDjBTlajO4P\n+8IlCIADHeAKo2jW2nQmETP+VFIMMWWorK68RJbE6d4VXzPopGpboLsX2mrKF0hU\nyWTWd+v4B4/qpQiuwFk1OVhKBYd3rZLNHavgdBG8AQKBgQD0a9rcdsYkkwBx6dgg\nUFpWBbcS6p4bSq8I60DFy3ZaNcaJEpdeC/34SgbAKB7eAPFK2fr52+eA96Rebk+2\nl+9Kz0G1DZsDzOqwjYnivICofY7Sqii/0nQkx1VPoPVRUrZVjjJ9r9xm2WPycfES\nz70sH1G1nXiASo+BOY0CrhFYrwKBgQDPmL1LVNeRJrt8gzcl4fTz00YbmZryfRN9\nDtqIfBeK6f+p6/FitaBITC9IkLtC3DWjgPVGEansOLMi90HZXyTl/Y/c1Fv8HnC9\nza63w3RxDaTGP2zRMTiMMo7kTfcJilIFHe6OOnz7d7HnytKhYzHgxfmt3iQs3B/r\nhf3oAn8+mQKBgQC+GdTTe52IfLzv3Ey4dUaNeUx2bfwihee1LCPosuKOLx0HJ2qL\nPxB8uDaf5ZR8XodNDFTjWGGqMPGqcGmXPnxi1ufoBXj3b71pK+x+aNY4Nc+LkcS3\nzNuAb3iuwiWK5qXhzQMANnNZmuLdgjlZxDEBzCok8yDxxwvuGfDOkMv1CQKBgDzy\nwfig8x0ZewgGWiWUHl+LktS9l0FEOXmI594UWLEfHEGeFON/IYy4WVV7sI7jqhfT\n367vtqy0xNsqLroL9gBUHm2eJ1dw9Ha1MWugRcp/T/YoXuFYCxsWKN+ciD/TzVrV\nO9mkEFef/6pm4MojHly4oyJJyuMkyXZTg4UfXo5ZAoGAR+jWAWHA3Xfjm+Ec9Z5g\nAHeSgBWfqROAVMP3DQ0LAA0La2f6Qa4sbVeVcLhR8s/fpEzACT+BdMiND1TVrdLC\nmrYsbcmmuM6+4vFhVQFxK2O4OEBD7sbn1+chPtxehcR25gbmxlf+FToMo3sqLzPP\nbE449GlRInTlOMD5zMAg0No=\n-----END PRIVATE KEY-----\n",
+                "private_key": process.env.PRIVATE_KEY,
                 "client_email": process.env.CLIENT_EMAIL,
                 "client_id": process.env.CLIENT_ID,
                 "auth_uri": process.env.AUTH_URI,
@@ -151,7 +151,6 @@ async function smallTalk(message) {
 client.on('message', (message) => {
     // ignoring bot messages
     if(message.author.bot) return;
-
     // atishi help commands
     if (message.content === prefix+ " -h" ) {
         const Embed = new MessageEmbed()
@@ -165,7 +164,7 @@ client.on('message', (message) => {
             { name: `Assist :innocent:\u0009`, value: '`atishi -h assist`', inline: true },  
             { name: `Moderator :pencil2:\u0009`, value: '`atishi -h moderate`', inline: true },
             { name: `Marvel :heartpulse:\u0009`, value: '`atishi -h marvel`', inline: true },       
-            { name: `Report a bug\u0009`, value: 'Help us improve! [Report a big here](http://google.com)', inline: true },       
+            { name: `Report a bug\u0009`, value: 'Help us improve! [Report a bug here](https://atishibot.netlify.app/#collaborator)', inline: true },       
         )
         .setColor('#f5bf42')
         .setTimestamp()
@@ -267,7 +266,6 @@ client.on('message', (message) => {
         .setFooter('Ishita Kabra', 'https://atishibot.netlify.app/assets/botLogo.png');
         message.channel.send(Embed);
     }
-
     // atishi small talk (hi, bye commands and functions)
     if (message.content.startsWith(prefix+ " hi") ) {
         // message.reply(`Hiii <3`);
@@ -280,31 +278,17 @@ client.on('message', (message) => {
     if(smallTalkVar) {
         if (!message.content.startsWith(prefix+ " -h")) smallTalk(message);
     }
-
     if(!smallTalkVar){
             //assist commands - date, time, google, inspire
             if (message.content.startsWith(prefix+ " date") ) {
                 const date = new Date().toLocaleDateString('en-US');
-                const Embed = new MessageEmbed()
-                .setColor('#f5bf42')
-                .setTitle(`Today's date is ${date}`)
-                .setAuthor('AtishiBoT', 'https://i.imgur.com/wSTFkRM.png')
-                .setDescription('Have a great day :innocent:')
-                .setTimestamp()
-                .setFooter('Ishita Kabra', 'https://i.imgur.com/wSTFkRM.png');
-                message.channel.send(Embed);
+                
+                message.channel.send(`Today's date is ${date}`);
             }
             if (message.content.startsWith(prefix+ " time") ) {
                 const date = new Date();
                 var time = date.toLocaleTimeString();
-                const Embed = new MessageEmbed()
-                .setColor('#f5bf42')
-                .setTitle(`The time right now is ${time}`)
-                .setAuthor('AtishiBoT', 'https://i.imgur.com/wSTFkRM.png')
-                .setDescription('Get going with your agendas for today!:alarm_clock:')
-                .setTimestamp()
-                .setFooter('Ishita Kabra', 'https://i.imgur.com/wSTFkRM.png');
-                message.channel.send(Embed);
+                message.channel.send(`It's  ${time} right now `);
             }
             if (message.content.startsWith(prefix) &&  message.content.includes("google")) {
                 let src = message.content.replace(`${prefix} google`,"");
@@ -321,8 +305,11 @@ client.on('message', (message) => {
                     }
                 })
                 .then(({data})=>{
-                    message.channel.send(`title: ${data.items[0].title}`);
-                    message.channel.send(`link: ${data.items[0].link}`);
+                    const Embed = new MessageEmbed()
+                    .setTitle( `${data.items[0].title}`)
+                    .setDescription(`[${data.items[0].link}](${data.items[0].link})`)
+                    .setColor('#f5bf42')
+                    message.channel.send(Embed);
                 })
                 .catch(()=>{
                     message.channel.send(`Could not find any matches relevant to your search! please try something else`);
@@ -334,7 +321,7 @@ client.on('message', (message) => {
                     .then((data)=>message.channel.send(`"${data.data.quote}"~${data.data.author}`))
                     .catch(()=>message.channel.send('Something went wrong'))
             }
-
+            // tech assist
             // music commands - play, stop, lyrics
             if(message.content.startsWith(prefix+" lyrics")){
                 let song = message.content.replace(`${prefix} lyrics`,"");
@@ -362,7 +349,15 @@ client.on('message', (message) => {
                         var $ = cheerio.load(res.data)
                         var data =$('.verse');
                         console.log(data.text());
-                        message.channel.send(data.text().substring(0,2000));
+                        var count = 0;
+                        var reps = Math.floor(data.text().length/2000);
+                        if(reps>0) {
+                            for (i = 0; i < reps; i++) {
+                                message.channel.send(data.text().substring(count,count+2000));
+                                count=count+2000;
+                            }
+                            message.channel.send(data.text().substring(count,data.text().length));
+                        } else message.channel.send(data.text());
                     })
                     .catch(()=>message.channel.send(`An error occured, please try again later`))
                 })
@@ -379,10 +374,9 @@ client.on('message', (message) => {
                 }
             }
             if(message.content.startsWith(prefix+' stop')){
-                if(!music) return message.channel.send('No song is playing');
+                if(!music) return message.channel.send('No song is playing :(');
                 stopFunc(message);
             }
-
             //fun commands - simpmeter, roast, meme
             if (message.content.startsWith(prefix+ " simpmeter") ) {
                 if(message.mentions.members.first=client.user) return message.channel.send("I'm no simp. You on the other hand, 100% :)");
@@ -404,14 +398,16 @@ client.on('message', (message) => {
                 const mainUrl = `https://www.reddit.com/r/dankmemes/random/.json`;
                 axios.get(mainUrl)
                     .then((response) => {
-                        let res = response.data[0].data.children[0].data
-                        message.channel.send(`${res.url}`);
+                        let res = response.data[0].data.children[0].data;
+                        const Embed = new MessageEmbed()
+                        .setColor('#f5bf42')
+                        .setImage(`${res.url}`)
+                        message.channel.send(Embed); 
                     })
                     .catch((err) => {
                         console.log(err);
                     });
             }
-
             // Moderator - change owner to admin permission
             if(message.content.startsWith(prefix+" kick")){
                 if(message.guild.ownerID !== message.author.id) return message.channel.send(`Only admins can kick other users! sorry`);
@@ -571,7 +567,6 @@ client.on('message', (message) => {
                     .then(()=>message.channel.send(`voice channel "${channel}" deleted`))
                     .catch(()=>message.channel.send(`An error occured`))
             }
-
             // Marvel 
             // which marvel character are you
             if(message.content.startsWith(prefix+" earth616")){
@@ -585,12 +580,17 @@ client.on('message', (message) => {
                         var appear = $('.pi-horizontal-group')
                         var name = $('aside').first().find('h2').first();
                         var quote = $('.quote').find('span') 
-                        console.log(name.text());
-                        message.channel.send(stats.find('a').attr('href'));
-                        message.channel.send(`***Name: ${name.text()}***`)
-                        message.channel.send(`***Quote: ***${quote.text().trim().replace(/\s+/g, " ")}`);
-                        message.channel.send(`***Trivia:*** ${history.find('p').slice(1,5).text().trim()}`);
-                        message.channel.send(appear.text().trim().replace(/\s+/g, " ").replace('First Appearance','***First Appearance:*** '));
+
+                        const Embed = new MessageEmbed()
+                        .setTitle(`You are ${name.text()}`)
+                        .setImage(stats.find('a').attr('href'))
+                        .setDescription(`-${quote.text().trim().replace(/\s+/g, " ").substring(0,1024)}`)
+                        .addFields(
+                            { name:`***First Appearance***`, value: `-${appear.text().trim().replace(/\s+/g, " ").replace('First Appearance','')}`},
+                            // { name: '***Trivia***', value: `-${history.find('p').slice(1,5).text().trim().substring(0,1024)}` },
+                        )
+                        .setColor('#f5bf42')
+                        message.channel.send(Embed);
 
                     })
                     .catch((err) => {
@@ -599,7 +599,6 @@ client.on('message', (message) => {
 
             }
     }
-    
     // -------------------- to do ---------------------- //
     // resume and pause a song 
 })
