@@ -157,7 +157,7 @@ client.on('message', (message) => {
     if (message.content === prefix+ " -h" ) {
         const Embed = new MessageEmbed()
         .setTitle('AtishiBot Help Commands')
-        .setDescription('AtishiBoT offers a wide range of features, explore them with these help commands. [visit for more](https://atishibot.netlify.app/)\u200B')
+        .setDescription('AtishiBoT offers a wide range of features, explore them with these help commands. [visit for more](https://atishi.me)\u200B')
         .setThumbnail('https://atishibot.netlify.app/assets/botLogo.png')
         .addFields(
             { name: `Chatbot :robot:\u0009`, value: '`atishi -h talk`', inline: true},
@@ -166,7 +166,7 @@ client.on('message', (message) => {
             { name: `Assist :innocent:\u0009`, value: '`atishi -h assist`', inline: true },  
             { name: `Moderator :pencil2:\u0009`, value: '`atishi -h moderate`', inline: true },
             { name: `Marvel :heartpulse:\u0009`, value: '`atishi -h marvel`', inline: true },       
-            { name: `Report a bug\u0009`, value: 'Help us improve! [Report a bug here](https://atishibot.netlify.app/#collaborator)', inline: true },       
+            { name: `Report a bug\u0009`, value: 'Help us improve! [Report a bug here](https://atishi.me/#collaborator)', inline: true },       
         )
         .setColor('#f5bf42')
         .setTimestamp()
@@ -176,7 +176,7 @@ client.on('message', (message) => {
     if (message.content.startsWith(prefix+ " -h talk") ) {
         const Embed = new MessageEmbed()
         .setTitle('AtishiBot Help Commands')
-        .setDescription('Use these commands to talk to atishi. Type something like:  "hi, how are you?". [visit for more](https://atishibot.netlify.app/)\u200B')
+        .setDescription('Use these commands to talk to atishi. Type something like:  "hi, how are you?". [visit for more](https://atishi.me)\u200B')
         .setThumbnail('https://atishibot.netlify.app/assets/botLogo.png')
         .addFields(
             { name: 'Initiate chatbot! :wave:', value: '`atishi hi`', inline: true },
@@ -190,7 +190,7 @@ client.on('message', (message) => {
     if (message.content.startsWith(prefix+ " -h music") ) {
         const Embed = new MessageEmbed()
         .setTitle('AtishiBot Help Commands')
-        .setDescription('Use these music commands to play songs or get song lyrics right here on youtube. [visit for more](https://atishibot.netlify.app/)\u200B')
+        .setDescription('Use these music commands to play songs or get song lyrics right here on youtube. [visit for more](https://atishi.me)\u200B')
         .setThumbnail('https://atishibot.netlify.app/assets/botLogo.png')
         .addFields(
             { name: 'Get song lyrics :musical_score:', value: 'atishi lyrics "..."', inline: true },
@@ -205,7 +205,7 @@ client.on('message', (message) => {
     if (message.content.startsWith(prefix+ " -h fun") ) {
         const Embed = new MessageEmbed()
         .setTitle('AtishiBot Help Commands')
-        .setDescription('Bored? Can atishi interest you in a meme? or a roast perhaps?". [visit for more](https://atishibot.netlify.app/)\u200B')
+        .setDescription('Bored? Can atishi interest you in a meme? or a roast perhaps?". [visit for more](https://atishi.me)\u200B')
         .setThumbnail('https://atishibot.netlify.app/assets/botLogo.png')
         .addFields(
             { name: 'Roast someone :smiling_imp:', value: 'atishi roast "@.."\u200B', inline: true },
@@ -220,7 +220,7 @@ client.on('message', (message) => {
     if (message.content.startsWith(prefix+ " -h assist") ) {
         const Embed = new MessageEmbed()
         .setTitle('AtishiBot Help Commands')
-        .setDescription('Get the date, time or google anything you like. [visit for more](https://atishibot.netlify.app/)\u200B')
+        .setDescription('Get the date, time or google anything you like. [visit for more](https://atishi.me)\u200B')
         .setThumbnail('https://atishibot.netlify.app/assets/botLogo.png')
         .addFields(
             { name: 'Feeling low? Get an inspirational quote :innocent:', value: 'atishi inspire', inline: false },
@@ -237,7 +237,7 @@ client.on('message', (message) => {
     if (message.content.startsWith(prefix+ " -h moderate") ) {
         const Embed = new MessageEmbed()
         .setTitle('AtishiBot Help Commands')
-        .setDescription('Perform basic moderator task with ease. [visit for more](https://atishibot.netlify.app/)\u200B')
+        .setDescription('Perform basic moderator task with ease. [visit for more](https://atishi.me)\u200B')
         .setThumbnail('https://atishibot.netlify.app/assets/botLogo.png')
         .addFields(
             { name: 'Kick user :person_walking:', value: 'atishi kick', inline: true },
@@ -259,7 +259,7 @@ client.on('message', (message) => {
     if (message.content.startsWith(prefix+ " -h marvel") ) {
         const Embed = new MessageEmbed()
         .setTitle('AtishiBot Help Commands')
-        .setDescription('Find out which marvel character you are. [visit for more](https://atishibot.netlify.app/)\u200B')
+        .setDescription('Find out which marvel character you are. [visit for more](https://atishi.me)\u200B')
         .setThumbnail('https://atishibot.netlify.app/assets/botLogo.png')
         .addFields(
             { name: 'Which marvel character are you :heartpulse:', value: 'atishi earth616', inline: true },
