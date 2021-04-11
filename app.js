@@ -26,6 +26,8 @@ let googleKey = process.env.GOOGLE_KEY
 let csx = process.env.CSX
 let googleKeyMusic = process.env.GOOGLE_KEY_METROLYRICS
 let csxMusic = process.env.CSX_METROLYRICS
+let stackkey = process.env.GOOGLE_KEY_STACK
+let stackcsx = process.env.CSX_STACK
 
 client.on('ready',() => {
     client.user.setActivity('atishi -h',{type: 'PLAYING'})
@@ -225,6 +227,7 @@ client.on('message', (message) => {
             { name: "Get today's date :calendar: ", value: 'atishi date', inline: true },
             { name: 'Get current time :alarm_clock:\u200B', value: 'atishi time\u200B', inline: true },
             { name: 'Google anything :globe_with_meridians:\u200B', value: 'atishi google ".."\u200B', inline: true }, 
+            { name: 'Ask a technical doubt :man_genie:\u200B', value: 'atishi  tech ".."\u200B', inline: true }, 
         )
         .setColor('#f5bf42')
         .setTimestamp()
@@ -598,9 +601,51 @@ client.on('message', (message) => {
                     });
 
             }
+
+            if(message.content.startsWith(prefix+" tech")){
+                let src = message.content.replace(`${prefix} tech`,"");
+                if(src.trim().length===0) {
+                    message.channel.send("You must enter something for atishi to debug");
+                    return;
+                }
+                axios.get('https://www.googleapis.com/customsearch/v1',{
+                    params:{
+                        key: stackkey,
+                        cx: stackcsx,
+                        safe:"off",
+                        q: src,
+                    }
+                })
+                .then(({data})=>{
+                    if(data.items.length>3){
+                        const Embed = new MessageEmbed()
+                        .setTitle( `Top 3 stackoverflow matches to your query`)
+                        .setDescription(`"${src}"`)
+                        .addFields(
+                            { name: `${data.items[0].title}`, value: `[${data.items[0].link}](${data.items[0].link})`},
+                            { name: `${data.items[1].title}`, value: `[${data.items[0].link}](${data.items[0].link})`},
+                            { name: `${data.items[2].title}`, value: `[${data.items[0].link}](${data.items[0].link})`},
+                        )
+                        .setColor('#f5bf42')
+                        message.channel.send(Embed);
+                    }
+                    else {
+                        const Embed = new MessageEmbed()
+                        .setTitle( `Top stackoverflow match to your query`)
+                        .setDescription(`"${src}"`)
+                        .addFields(
+                            { name: `${data.items[0].title}`, value: `[${data.items[0].link}](${data.items[0].link})`},
+                        )
+                        .setColor('#f5bf42')
+                        message.channel.send(Embed);
+                    }
+                })
+                .catch(()=>{
+                    message.channel.send(`Could not find any matches relevant to your search! please try something else`);
+                })
+            }
     }
-    // -------------------- to do ---------------------- //
-    // resume and pause a song 
+   
 })
 
 client.login(process.env.DISCORD_BOT_TOKEN);
