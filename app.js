@@ -382,13 +382,13 @@ client.on('message', (message) => {
             }
             //fun commands - simpmeter, roast, meme
             if (message.content.startsWith(prefix+ " simpmeter") ) {
-                if(message.mentions.members.first=client.user) return message.channel.send("I'm no simp. You on the other hand, 100% :)");
+                // if(message.mentions.members.first=client.user) return message.channel.send("I'm no simp. You on the other hand, 100% :)");
                 const mem = message.mentions.members.first();
                 if(!mem) return message.channel.send('Mention someone to simp');
                 message.channel.send(`${mem} is ${Math.floor(Math.random() * 100)}% simp `)
             }
             if (message.content.startsWith(prefix+ " roast") ) {
-                if(message.mentions.members.first=client.user) return message.channel.send("You can't roast me :)");
+                // if(message.mentions.members.first=client.user) return message.channel.send("You can't roast me :)");
                 const mem = message.mentions.members.first();
                 if(!mem) return message.channel.send(`Please provide a valid member name`);
                 message.channel.send(`Fetching your roast..`); 
@@ -414,7 +414,7 @@ client.on('message', (message) => {
             // Moderator - change owner to admin permission
             if(message.content.startsWith(prefix+" kick")){
                 if(message.guild.ownerID !== message.author.id) return message.channel.send(`Only admins can kick other users! sorry`);
-                if(message.mentions.members.first=client.user) return message.channel.send("You can't kick me hah!");
+                // if(message.mentions.members.first=client.user) return message.channel.send("You can't kick me hah!");
                 else {
                     const mem = message.mentions.members.first();
                     if(!mem) return message.channel.send(`Please provide valid member names to kick`);
@@ -427,7 +427,7 @@ client.on('message', (message) => {
             }
             if(message.content.startsWith(prefix+" ban")){
                 if(message.guild.ownerID !== message.author.id) return message.channel.send(`Only admins can ban other users! sorry`);
-                if(message.mentions.members.first=client.user) return message.channel.send("You can't ban me hah!");
+                // if(message.mentions.members.first=client.user) return message.channel.send("You can't ban me hah!");
                 else {
                     const mem = message.mentions.members.first();
                     if(!mem) return message.channel.send(`Please provide valid member names to ban`);
